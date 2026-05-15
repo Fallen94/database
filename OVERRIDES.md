@@ -6,6 +6,12 @@ This fork tracks `Dictionarry-Hub/database` (branch `stable`) with one customiza
 |---|---|---|
 | `AV1` custom-format score in every profile YAML | `400000` (== profile `upgradeUntilScore`) | Entire library is transcoded to AV1 by Tdarr. AV1 is the terminal quality; downloads must not be replaced because of the upstream default `AV1 = -999999` (banned). |
 
+## Fork-local profiles (not in upstream)
+
+| Profile | Based on | Diff vs base |
+|---|---|---|
+| `1080p Final` | `1080p Quality` | `upgradesAllowed: false`. For shows where the current file should never be replaced (e.g. DVD-source-only shows transcoded to AV1 — Sonarr's quality-tier cutoff would otherwise trigger DVD→1080p upgrades regardless of CF scores). |
+
 ## How sync works
 
 `.github/workflows/upstream-sync.yml` runs weekly (Mon 04:17 UTC):
